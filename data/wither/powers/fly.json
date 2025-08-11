@@ -1,0 +1,12 @@
+{
+	"name": "Flying",
+	"description": "You have creative flight.",
+	"type": "origins:multiple",
+	"creative": {
+		"type": "origins:creative_flight"
+	},
+	"slow": {
+		"type": "origins:prevent_sprinting"
+	}
+	
+}

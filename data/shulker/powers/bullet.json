@@ -1,0 +1,19 @@
+{
+	"name": "Bullet",
+	"description": "Pressing [Secondary] will spawn a sulker bullet to hunt your foes.",
+	"type": "origins:active_self",
+	"cooldown": 100,
+	"key": {
+		"key": "key.origins.secondary_active"
+	},
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+		"bar_index": 0
+	},
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "summon shulker_bullet ~ ~1 ~"
+	}
+	
+}

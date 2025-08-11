@@ -1,0 +1,115 @@
+{
+    "type": "origins:multiple",
+    "name": "Endgame Gear",
+    "description": "Upon chosing this origin, your armor will drop and you will be given a set of very powerfull gear.",
+    "droparmor": {
+        "type": "origins:action_on_callback",
+        "entity_action_lost": {
+            "type": "origins:replace_inventory",
+            "inventory_type": "inventory",
+            "slots": [
+                "armor.chest",
+                "armor.feet",
+                "armor.head",
+                "armor.legs"
+            ],
+            "stack": {
+                "item": "minecraft:air"
+            }
+        },
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "inventory_type": "inventory",
+                    "type": "origins:drop_inventory",
+                    "slots": [
+                        "armor.chest",
+                        "armor.feet",
+                        "armor.head",
+                        "armor.legs"
+                    ]
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "head",
+                    "stack": {
+                        "item": "minecraft:netherite_helmet",
+                        "tag": "{display:{Name:'{\"text\":\"Ultimate Crown\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:protection',lvl:5s},{id:'minecraft:fire_protection',lvl:5s},{id:'minecraft:blast_protection',lvl:5s},{id:'minecraft:projectile_protection',lvl:5s},{id:'minecraft:respiration',lvl:10s},{id:'minecraft:aqua_affinity',lvl:1s},{id:'minecraft:thorns',lvl:5s},{id:'minecraft:binding_curse',lvl:1s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "chest",
+                    "stack": {
+                        "item": "minecraft:netherite_chestplate",
+                        "tag": "{display:{Name:'{\"text\":\"Ultimate Breastplate\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:protection',lvl:5s},{id:'minecraft:fire_protection',lvl:5s},{id:'minecraft:blast_protection',lvl:5s},{id:'minecraft:projectile_protection',lvl:5s},{id:'minecraft:thorns',lvl:5s},{id:'minecraft:binding_curse',lvl:1s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "legs",
+                    "stack": {
+                        "item": "minecraft:netherite_leggings",
+                        "tag": "{display:{Name:'{\"text\":\"Ultimate Greaves\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:protection',lvl:5s},{id:'minecraft:fire_protection',lvl:5s},{id:'minecraft:blast_protection',lvl:5s},{id:'minecraft:projectile_protection',lvl:5s},{id:'minecraft:thorns',lvl:5s},{id:'minecraft:binding_curse',lvl:1s},{id:'minecraft:vanishing_curse',lvl:1s},{id:'minecraft:swift_sneak',lvl:5s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "feet",
+                    "stack": {
+                        "item": "minecraft:netherite_boots",
+                        "tag": "{display:{Name:'{\"text\":\"Ultimate Sabatons\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:protection',lvl:5s},{id:'minecraft:fire_protection',lvl:5s},{id:'minecraft:feather_falling',lvl:10s},{id:'minecraft:blast_protection',lvl:5s},{id:'minecraft:projectile_protection',lvl:5s},{id:'minecraft:thorns',lvl:5s},{id:'minecraft:depth_strider',lvl:5s},{id:'minecraft:frost_walker',lvl:4s},{id:'minecraft:binding_curse',lvl:1s},{id:'minecraft:vanishing_curse',lvl:1s},{id:'minecraft:soul_speed',lvl:5s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "mainhand",
+                    "stack": {
+                        "item": "minecraft:netherite_sword",
+                        "tag": "{RepairCost:1000,display:{Name:'{\"text\":\"Ultimate Saber\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:sharpness',lvl:6s},{id:'minecraft:smite',lvl:6s},{id:'minecraft:bane_of_arthropods',lvl:6s},{id:'minecraft:fire_aspect',lvl:3s},{id:'minecraft:looting',lvl:8s},{id:'minecraft:sweeping',lvl:6s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "mainhand",
+                    "stack": {
+                        "item": "minecraft:netherite_pickaxe",
+                        "tag": "{RepairCost:1000,display:{Name:'{\"text\":\"Ultimate Pickaxe\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:efficiency',lvl:8s},{id:'minecraft:fortune',lvl:5s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "mainhand",
+                    "stack": {
+                        "item": "minecraft:netherite_shovel",
+                        "tag": "{RepairCost:1000,display:{Name:'{\"text\":\"Ultimate Pickaxe\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:efficiency',lvl:8s},{id:'minecraft:fortune',lvl:5s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "mainhand",
+                    "stack": {
+                        "item": "minecraft:netherite_axe",
+                        "tag": "{RepairCost:1000,display:{Name:'{\"text\":\"Ultimate Pickaxe\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:efficiency',lvl:8s},{id:'minecraft:fortune',lvl:5s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "preferred_slot": "mainhand",
+                    "stack": {
+                        "item": "minecraft:netherite_hoe",
+                        "tag": "{RepairCost:1000,display:{Name:'{\"text\":\"Ultimate Pickaxe\"}'},Unbreakable:1b,Enchantments:[{id:'minecraft:efficiency',lvl:8s},{id:'minecraft:fortune',lvl:5s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                },
+                {
+                    "type": "origins:give",
+                    "stack": {
+                        "item": "minecraft:diamond_horse_armor",
+                        "tag": "{display:{Name:'{\"text\":\"Ultimate Barding\"}'},Enchantments:[{id:'minecraft:feather_falling',lvl:10s},{id:'minecraft:respiration',lvl:10s},{id:'minecraft:thorns',lvl:5s},{id:'minecraft:depth_strider',lvl:5s},{id:'minecraft:vanishing_curse',lvl:1s}]}"
+                    }
+                }
+            ]
+        }
+    }
+}

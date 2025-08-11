@@ -1,0 +1,68 @@
+{
+    "name": "Dimensional Shift",
+    "description": "You can press your [Secondary] to Teleport between the end and overworld. Long cooldown.",
+    "type": "origins:multiple",
+    "tele": {
+        "type": "origins:active_self",
+        "cooldown": 120,
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 6
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "execute in minecraft:the_end run tp @s ~ ~ ~"
+                        },
+                        "ticks": 5
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "spreadplayers ~ ~ 1 200 under 320 false @s"
+                        },
+                        "ticks": 20
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "execute in minecraft:overworld run tp @s ~ ~ ~"
+                        },
+                        "ticks": 5
+                    },
+                    {
+                        "type": "origins:delay",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "spreadplayers ~ ~ 1 200 under 320 false @s"
+                        },
+                        "ticks": 20
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:dimension",
+                "dimension": "minecraft:the_end",
+                "inverted": true
+            }
+            
+        }
+    }
+}

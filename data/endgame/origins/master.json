@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "endgame:fly",
+        "endgame:items",
+        "endgame:benefits",
+        "endgame:reset"
+    ],
+    "icon": "minecraft:enchanted_golden_apple",
+    "order": 10,
+    "impact": 3,
+    "name": "Endgame Master",
+    "description": "Well you beat the Game",
+    "unchoosable": true
+}

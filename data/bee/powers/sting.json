@@ -1,0 +1,118 @@
+{
+	"name": "Sting",
+	"description": "Pressing [Primary] to activate your stinger. While this is active, when you hit an entity, they will be heavily poisoned but you will die in 1 minute.",
+	"type": "origins:multiple",
+	"boolean": {
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+			"bar_index": 0
+        },
+        "min": 0,
+        "max": 1
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_boolean",
+                "operation": "set",
+                "change": 1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_boolean",
+                "operation": "set",
+                "change": 0
+            }
+        }
+    },
+	"sting": {
+		"type": "origins:action_on_hit",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_deathtimer",
+			"comparison": ">",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"bientity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:target_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:damage",
+								"amount": 2,
+								"source": {
+									"name": "sting"
+								}
+							},
+							{
+								"type": "origins:apply_effect",
+								"effect": {
+									"effect": "minecraft:poison",
+									"amplifier": 1,
+									"duration": 400
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:trigger_cooldown",
+								"power": "*:*_deathtimer"
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 1210,
+								"action": {
+									"type": "origins:damage",
+									"amount": 100,
+									"source": {
+										"bypasses_armor": true,
+										"unblockable": true,
+										"name": "wither"
+									}
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	},
+	"deathtimer": {
+		"type": "origins:cooldown",
+		"cooldown": 1200,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 5
+		}
+	}
+	
+}

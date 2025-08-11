@@ -1,0 +1,9 @@
+{
+  "hidden": true,
+  "type": "origins:attribute",
+  "modifier": {
+    "attribute": "generic.knockback_resistance",
+    "operation": "multiply_total",
+    "value": -0.75
+  }
+}

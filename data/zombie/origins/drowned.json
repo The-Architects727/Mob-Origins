@@ -1,0 +1,18 @@
+{
+    "powers": [
+        "zombie:drownedreinforcments",
+        "zombie:burn",
+        "zombie:villagers",
+        "zombie:reset",
+        "zombie:breath",
+        "origins:like_water",
+        "zombie:friendlyzombie",
+        "zombie:makefriendlyzombie"
+    ],
+    "icon": "minecraft:rotten_flesh",
+    "order": 10,
+    "impact": 3,
+    "name": "Drowned",
+    "description": "Undead walker of the ocean floor.",
+    "unchoosable": true
+}

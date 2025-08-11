@@ -1,0 +1,11 @@
+{
+  "name": "Heavy",
+  "description": "You sink in water and cannot fly with an elytra.",
+  "type": "origins:multiple",
+  "elytra":{
+    "type": "origins:prevent_elytra_flight"
+  },
+  "water": {
+    "type": "origins:ignore_water"
+  }
+}

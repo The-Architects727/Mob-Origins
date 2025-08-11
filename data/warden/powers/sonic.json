@@ -1,0 +1,61 @@
+{
+  "name": "Sonic Boom",
+  "description": "Every 10 seconds you can press [Primary] to begin to charge up a sonic blast. After 1.5 seconds you will fire a 16 block ray that deals 15 damage.",
+  "type": "origins:active_self",
+  "cooldown": 240,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "origins:textures/gui/resource_bar.png",
+    "bar_index": 7
+  },
+  "key": {
+    "key": "key.origins.primary_active"
+  },
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:play_sound",
+        "sound": "minecraft:entity.elder_guardian.death",
+        "volume": 100,
+        "pitch": 0.5
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 30,
+        "action": {
+          "type": "origins:and",
+          "actions": [{
+            "type": "origins:play_sound",
+            "sound": "minecraft:entity.elder_guardian.hurt",
+            "volume": 100,
+            "pitch": 1.5
+          },
+        {
+          
+          "type": "origins:raycast",
+          "distance": 16,
+          "block": false,
+          "entity": true,
+          "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+              "type": "origins:damage",
+              "amount": 15,
+              "source": {
+                "unblockable": true,
+                "name": "magic"
+              }
+        }
+            },
+            "command_along_ray": "particle minecraft:soul_fire_flame ~ ~ ~ 0 0 0 1 0 normal"
+        }]
+          
+        }
+        
+      }
+      
+  ]
+    
+  }
+}

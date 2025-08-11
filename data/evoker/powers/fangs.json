@@ -1,0 +1,165 @@
+{
+    "name": "Fangs",
+	"description": "Press [Secondary] to summon evoker fangs in a line. Press [Secondary] while sneaking to summon fangs in a circle.",
+    "type": "origins:multiple",
+    "hidden": false,
+    "damage": {
+        "type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:attacker",
+			"entity_condition": {
+				"type": "origins:entity_type",
+				"entity_type": "minecraft:evoker_fangs"
+			}
+		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1
+		}
+    },
+    "summon": {
+        "cooldown": 100,
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 6
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^1"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^3"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^4"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^6"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^7"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^8"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^9"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^10"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^11"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^12"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^13"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^14"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^15"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ^ ^ ^16"
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~1 ~ ~"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~0.3 ~ ~1"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~0.3 ~ ~-1"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~-0.75 ~ ~-0.5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~-0.75 ~ ~0.5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~2 ~ ~"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~-2 ~ ~"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~ ~ ~2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~ ~ ~-2"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~1.5 ~ ~1.5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~-1.5 ~ ~-1.5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~1.5 ~ ~-1.5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon minecraft:evoker_fangs ~-1.5 ~ ~1.5"
+                    }
+                ]
+            },
+            "condition": {
+                "type": "origins:sneaking",
+                "inverted": true
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Iron Golem Spawn",
+      "description": "When damaged you have a 10% chance to spawn an iron golem.",
+    "cooldown": 20,
+    "type": "origins:action_when_damage_taken",
+    "entity_action": {
+      "type": "origins:chance",
+      "chance": 0.1,
+      "action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+              "type": "origins:execute_command",
+              "command": "summon minecraft:iron_golem ~ ~ ~"
+            }
+          },
+          {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+              "type": "origins:execute_command",
+              "command": "spreadplayers ~ ~ 1 5 under 320 false @e[type=minecraft:iron_golem,distance=..1]"
+            }
+          }
+        ]
+      }
+    }
+  }
+  

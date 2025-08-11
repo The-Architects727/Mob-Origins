@@ -1,0 +1,135 @@
+{
+  "name": "Echolocation",
+  "description": "You see the outlines of blocks and can only see entities if they are moving.",
+  "type": "origins:multiple",
+  "prep": {
+    "type": "apoli:action_over_time",
+    "interval": 1,
+    "entity_action": {
+        "type": "apoli:and",
+        "actions": [
+            {
+                "type": "apoli:execute_command",
+                "command": "tag @s add this"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "power revoke @e[tag = !this, distance = 33..] moving:state example:glow_moving_entities"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "power grant @e[tag = !this, distance = ..32] moving:state example:glow_moving_entities"
+            },
+            {
+                "type": "apoli:execute_command",
+                "command": "tag @s remove this"
+            }
+        ]
+    }
+},
+"limit": {
+    "type": "origins:modify_camera_submersion",
+    "from": "none",
+    "to": "water"
+},
+"nightvision": {
+    "type": "origins:night_vision",
+    "strength": 1,
+    "condition": {
+        "type": "origins:in_block",
+        "block_condition": {
+            "type": "origins:height",
+            "comparison": "<=",
+            "compare_to": 70
+        }
+    }
+},
+"dayvision": {
+    "type": "origins:action_over_time",
+    "interval": 20,
+    "entity_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+            "effect": "minecraft:blindness",
+            "duration": 300,
+            "amplifier": 3
+        }
+    },
+    "condition": {
+        "type": "origins:in_block",
+        "block_condition": {
+            "type": "origins:height",
+            "comparison": ">=",
+            "compare_to": 60
+        }
+    }
+},
+"mine": {
+    "type": "origins:modify_break_speed",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": 4
+    }
+},
+  "black": {
+    "type": "origins:shader",
+    "shader": "minecraft:shaders/post/sobel.json"
+  },
+  "glow": {
+    "type": "apoli:entity_glow",
+        "entity_condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:living"
+                },
+                {
+                    "type": "apoli:or",
+                    "conditions": [
+                        {
+                            "type": "apoli:resource",
+                            "resource": "moving:state_horizontally",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "apoli:resource",
+                            "resource": "moving:state_vertically",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            ]
+        }
+  },
+  "invis": {
+    "type": "origins:prevent_entity_render",
+    "entity_condition": {
+      "type": "apoli:and",
+      "conditions": [
+          {
+              "type": "apoli:living"
+          },
+          {
+              "type": "apoli:or",
+              "conditions": [
+                  {
+                      "type": "apoli:resource",
+                      "resource": "moving:state_horizontally",
+                      "comparison": "==",
+                      "compare_to": 1
+                  },
+                  {
+                      "type": "apoli:resource",
+                      "resource": "moving:state_vertically",
+                      "comparison": "==",
+                      "compare_to": 1
+                  }
+              ],
+              "inverted": true
+          }
+      ]
+  }
+  }
+}

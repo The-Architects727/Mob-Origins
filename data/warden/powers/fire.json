@@ -1,0 +1,23 @@
+{
+  "name": "Cave Dweller",
+  "description": "You are immune to fire and lava damage.",
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "operation": "multiply_total",
+      "value": -1
+    },
+    "damage_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:name",
+          "name": "onFire"
+        },
+        {
+          "type": "origins:name",
+          "name": "lava"
+        }
+      ]
+    }
+	
+}

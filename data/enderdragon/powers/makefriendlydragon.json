@@ -1,0 +1,25 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "friendermen_make_friends": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join dragon @e[type=enderman]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join dragon @e[type=shulker]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join dragon @e[type=ender_dragon]"
+                }
+            ]
+        }
+    }
+}

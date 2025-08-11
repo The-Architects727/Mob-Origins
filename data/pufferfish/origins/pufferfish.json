@@ -1,0 +1,21 @@
+{
+    "powers": [
+        "origins:water_breathing",
+        "origins:aqua_affinity",
+        "origins:swim_speed",
+        "origins:like_water",
+        "origins:aquatic",
+        "origins:conduit_power_on_land",
+        "origins:air_from_potions",
+        "pufferfish:water_vision",
+        "pufferfish:small",
+        "pufferfish:sting",
+        "pufferfish:oceanspawn",
+        "pufferfish:health"
+    ],
+    "icon": "minecraft:pufferfish",
+    "order": 10,
+    "impact": 3,
+    "name": "Pufferfish",
+    "description": "Defensive fish"
+}

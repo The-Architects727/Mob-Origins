@@ -1,0 +1,9 @@
+{
+    "name": "Reset on Death",
+    "description": "When you die you will be prompted to choose a new origin.",
+    "type": "origins:action_on_callback",
+    "entity_action_respawned": {
+        "type": "origins:execute_command",
+        "command": "origin gui @s"
+    }   
+}

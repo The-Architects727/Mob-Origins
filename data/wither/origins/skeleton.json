@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "wither:friendlywither",
+        "wither:makefriendlywither",
+        "wither:witherimmune",
+        "wither:stoneonly",
+        "wither:fortressspawn",
+        "wither:tall",
+        "wither:witherhit"
+    ],
+    "icon": "minecraft:wither_skeleton_skull",
+    "order": 10,
+    "impact": 3,
+    "name": "Wither Skeleton",
+    "description": "Withered guardian of the nether fortress."
+}

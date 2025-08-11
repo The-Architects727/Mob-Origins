@@ -1,0 +1,25 @@
+{
+  "name": "Bulky",
+  "description": "You cannot wear any type of armor.",
+  "type": "origins:restrict_armor",
+  "head": {
+    "type": "origins:armor_value",
+    "compare_to": 1,
+    "comparison": ">="
+  },
+  "chest": {
+    "type": "origins:armor_value",
+    "compare_to": 1,
+    "comparison": ">="
+  },
+  "legs": {
+    "type": "origins:armor_value",
+    "compare_to": 1,
+    "comparison": ">="
+  },
+  "feet": {
+    "type": "origins:armor_value",
+    "compare_to": 1,
+    "comparison": ">="
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "Wither Immune",
+    "description": "You are Immune to the Wither effect.",
+	
+        "type": "origins:multiple",
+        
+        "wither": {
+            "name": "One with Fire",
+            "description": "You take no damage from fire sources.",
+            "type": "origins:modify_damage_taken",
+            "damage_condition": {
+                "type": "origins:name",
+                "name": "wither"
+            },
+            "modifier": {
+                "operation": "multiply_total",
+                "value": -1
+            }
+        },
+        "witherskull": {
+            "name": "One with Fire",
+            "description": "You take no damage from fire sources.",
+            "type": "origins:modify_damage_taken",
+            "damage_condition": {
+                "type": "origins:name",
+                "name": "witherSkull"
+            },
+            "modifier": {
+                "operation": "multiply_total",
+                "value": -1
+            }
+        }
+}

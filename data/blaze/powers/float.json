@@ -1,0 +1,12 @@
+{
+        "type": "origins:multiple",
+        "float": {
+            "type": "origins:modify_falling",
+            "take_fall_damage": false,
+            "velocity": 0.02
+        },
+	
+	"name": "Float",
+	"description": "You have permanent slowfalling"
+	
+}

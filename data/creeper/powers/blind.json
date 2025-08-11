@@ -1,0 +1,38 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 3,
+    "condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:command",
+                "command": "execute if entity @e[type=minecraft:cat,distance=..10]",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:command",
+                "command": "execute if entity @e[type=minecraft:ocelot,distance=..10]",
+                "comparison": ">=",
+                "compare_to": 1
+            }
+        ]
+        
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:blindness",
+                    "duration": 100
+                }
+            }
+        ]
+},
+	
+	"name": "Cat Fright",
+	"description": "You are blinded with fear when near cats."
+	
+}

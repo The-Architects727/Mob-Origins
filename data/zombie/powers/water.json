@@ -1,0 +1,6 @@
+{
+    "type": "origins:ignore_water",
+	"name": "Sink",
+	"description": "You sink in water."
+	
+}

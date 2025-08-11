@@ -1,0 +1,26 @@
+{
+    "name": "Warden",
+    "description": "Spawn of the Dark, made as a guardian of the city.",
+    "powers": [
+        "warden:unarmed",
+        "warden:size",
+        "warden:vision",
+        "warden:health",
+        "warden:armor",
+        "warden:extraarmor",
+        "warden:fire",
+        "warden:elytra-water",
+        "warden:sonic",
+        "warden:reset"
+    ],
+    "icon": {
+        "item": "minecraft:deepslate",
+        "amount": 1
+    },
+
+    "order": 10,
+    "impact": 3,
+    "loading_priority": 5,
+    "unchoosable": true
+
+}

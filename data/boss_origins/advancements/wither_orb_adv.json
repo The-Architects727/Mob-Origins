@@ -1,0 +1,13 @@
+{
+    "criteria": {
+        "enderkeyunlock": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "boss_origins:wither_orb"
+            }
+        }
+    },
+    "rewards": {
+        "function": "boss_origins:wither_orb_give"
+    }
+}

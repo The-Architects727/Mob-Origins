@@ -1,0 +1,7 @@
+{
+  "name": "Ocean Spawn",
+	"description": "You spawn in a Warm Ocean.",
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:overworld",
+  "biome": "minecraft:warm_ocean"
+}

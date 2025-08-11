@@ -1,0 +1,28 @@
+{
+	"name": "Wings",
+	"description": "You have creative flight when below y200",
+	"type": "origins:multiple",
+	"creative": {
+		"type": "origins:creative_flight",
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:height",
+				"comparison": "<=",
+				"compare_to": 200
+			}	
+		}
+	},
+	"slow": {
+		"type": "origins:prevent_sprinting",
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:height",
+				"comparison": "<=",
+				"compare_to": 200
+			}	
+		}
+	}
+	
+}

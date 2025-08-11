@@ -1,0 +1,51 @@
+{
+    "name": "Explode",
+    "description": "You can press your [Primary] to Explode",
+    "type": "origins:multiple",
+    "tele": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:play_sound",
+                        "sound": "minecraft:entity.creeper.primed",
+                        "pitch": 1,
+                        "volume": 2
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:explode",
+                        "create_fire": false,
+                        "damage_self": true,
+                        "destruction_type": "break",
+                        "power": 3
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 20,
+                        "source": {
+                            "magic": true,
+                            "bypasses_armor": true,
+                            "unblockable": true,
+                            "name": "explosion"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

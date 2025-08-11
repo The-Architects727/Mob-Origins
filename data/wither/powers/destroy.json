@@ -1,0 +1,5 @@
+{
+    "type": "origins:simple",
+    "name": "Destroy on Damage",
+    "description": "When you take damage you break all blocks in your vicinity."
+}

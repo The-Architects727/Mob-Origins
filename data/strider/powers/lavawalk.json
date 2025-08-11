@@ -1,0 +1,68 @@
+{
+	"name": "Lava Walk",
+	"description": "You can walk on lava but are slow on land.",
+	"type": "origins:multiple",
+	"walk": {
+		"type": "origins:walk_on_fluid",
+		"fluid": "minecraft:lava"
+	},
+	"lava": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:fire"
+		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1
+		}
+	},
+	"fast": {
+        "type": "origins:action_over_time",
+		"interval": 5,
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "effect clear @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "scale set pehkui:motion 2"
+				}
+			]
+		},
+		"falling_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "scale reset pehkui:motion"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @s minecraft:slowness 100 2"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:on_block",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:lava"
+					}
+				},
+				{
+					"type": "origins:in_block",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:lava"
+					}
+				}
+			]
+		}
+    }
+}

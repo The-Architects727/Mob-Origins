@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "creeper:blind",
+        "creeper:bigexplode",
+        "creeper:biglight",
+        "creeper:reset",
+        "creeper:friendlycreeper",
+        "creeper:makefriendlycreeper"
+    ],
+    "icon": "minecraft:creeper_head",
+    "order": 10,
+    "impact": 3,
+    "name": "Charged Creeper",
+    "description": "Camo stalker with an explosive weapon.",
+    "unchoosable": true
+}

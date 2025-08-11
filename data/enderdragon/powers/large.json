@@ -1,0 +1,31 @@
+{
+    "name": "Large",
+    "description": "You are slightly larger than 2 blocks tall and 2 blocks wide.",
+    "type": "origins:multiple",
+    "hidden": false,
+    "friendermen_join_team": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "scale reset"
+        },
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 2.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 20"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:reach 2"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "powers": [
+        "villager:discounts",
+        "villager:golem",
+        "villager:village"
+    ],
+    "icon": "minecraft:emerald",
+    "order": 10,
+    "impact": 3,
+    "name": "Villager",
+    "description": "Merchants of the world."
+}

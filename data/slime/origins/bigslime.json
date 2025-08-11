@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "slime:nowalk",
+        "slime:noslime",
+        "slime:jumponlybig",
+        "slime:bighealth",
+        "slime:bigtomedium",
+        "slime:friendlyslime",
+        "slime:makefriendlyslime"
+    ],
+    "icon": "minecraft:slime_ball",
+    "order": 10,
+    "impact": 3,
+    "name": "Slime",
+    "description": "Cuboid wanderer of swamps."
+}

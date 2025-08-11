@@ -1,0 +1,52 @@
+{
+    "name": "Roar",
+    "description": "You can press [Primary] to roar. This deals 6 damage and large knockback to every mob is a 5 block radius. (5 sec cooldown)",
+    "type": "origins:multiple",
+    "raor": {
+        "type": "origins:active_self",
+        "cooldown": 100,
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:play_sound",
+                    "sound": "entity.ravager.roar"
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 6,
+                    "include_target": false,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:damage",
+                                    "amount": 6,
+                                    "source": {
+                                        "name": "sonic_boom"
+                                    }
+                                },
+                                {
+                                    "type": "origins:add_velocity",
+                                    "space": "local_horizontal",
+                                    "y": 1
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 20
+        }
+    }
+        
+    }

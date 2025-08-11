@@ -1,0 +1,23 @@
+{
+    "name": "Discounts",
+    "description": "You can trade nearly infinitly with other villagers.",
+    "type": "origins:multiple",
+    
+    "discount": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s as @e[type=minecraft:villager,distance=..6] run data modify entity @s Offers.Recipes[].maxUses set value 10000"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @s as @e[type=minecraft:villager,distance=6..12] run data modify entity @s Offers.Recipes[].maxUses set value 12"
+                }
+            ]
+        }
+    }
+}

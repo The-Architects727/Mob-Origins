@@ -1,0 +1,24 @@
+{
+    "name": "Villager Fright",
+    "description": "Villagers are afraid of you and iron golems will attack you.",
+    
+    "type": "origins:multiple",
+    
+    "iron_golem_auto_mad": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @e[type=iron_golem,limit=1,distance=..50] AngryAt set from entity @s UUID"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "data modify entity @e[type=iron_golem,limit=1,distance=..50] AngryAt set from entity @s UUID"
+                }
+            ]
+        }
+    }
+}

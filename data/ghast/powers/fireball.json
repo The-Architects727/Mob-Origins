@@ -1,0 +1,21 @@
+{
+	"name": "Fireball",
+	"description": "Pressing [Primary] will shoot a fireball where you are looking.",
+	"type": "origins:multiple",
+	"ball": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:fireball",
+		"cooldown": 40,
+		"speed": 0.5,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 7
+		},
+		"count": 1,
+		"tag": "{ExplosionPower:2b}",
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	}
+}

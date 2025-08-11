@@ -1,0 +1,125 @@
+{
+    "name": "Stone Tools Only",
+    "description": "You cannot use above stone tools as they are not native to the nether.",
+    "type": "origins:multiple",
+    "stone": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 1,
+        "duration_per_stack": 20,
+        "effects": [
+            {
+                "effect": "minecraft:weakness",
+                "duration": 20,
+                "amplifier": 9,
+                "show_particles": false,
+                "show_icon": false
+            },
+            {
+                "effect": "minecraft:mining_fatigue",
+                "duration": 20,
+                "amplifier": 9,
+                "show_particles": false,
+                "show_icon": false
+            }
+        ],
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+    
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "iron_axe"
+                                }
+                            },
+                             {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "iron_pickaxe"
+                                }
+                            },
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "diamond_axe"
+                                }
+                            },
+                           
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "iron_sword"
+                                }
+                            },
+                             {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "diamond_pickaxe"
+                                }
+                            },
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "diamond_sword"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "offhand",
+                    "item_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                        {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "iron_axe"
+                                }
+                            },
+                             {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "iron_pickaxe"
+                                }
+                            },
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "diamond_axe"
+                                }
+                            },
+                             {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "diamond_pickaxe"
+                                }
+                            },
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "iron_sword"
+                                }
+                            },
+                            {
+                                "type":"origins:ingredient",
+                                "ingredient": {
+                                    "item": "diamond_sword"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+    
+}

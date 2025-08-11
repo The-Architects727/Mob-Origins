@@ -1,0 +1,29 @@
+{
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[type=#minecraft:arrows,distance=..3,nbt={inGround:0b}]",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+            ]
+            
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "spreadplayers ~ ~ 1 30 under 320 false @s"
+                }
+            ]
+    },
+	
+	"name": "Danger Sense",
+	"description": "You can dodge all projectiles. But your instincts will teleport you away from your own projectiles too."
+	
+}

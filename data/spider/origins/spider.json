@@ -1,0 +1,17 @@
+{
+    "powers": [
+        "origins:carnivore",
+        "origins:climbing",
+        "origins:master_of_webs",
+        "origins:arthropod",
+        "spider:small",
+        "spider:friendlyspider",
+        "spider:makefriendlyspider",
+        "spider:health"
+    ],
+    "icon": "minecraft:spider_eye",
+    "order": 10,
+    "impact": 3,
+    "name": "Spider",
+    "description": "Creepy Crawler of the night."
+}

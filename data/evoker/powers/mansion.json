@@ -1,0 +1,8 @@
+{
+  "name": "Mansion Spawn",
+	"description": "You spawn in a Woodland Mansion.",
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:overworld",
+  "structure": "minecraft:mansion",
+  "spawn_strategy": "center"
+}

@@ -1,0 +1,112 @@
+{
+	"name": "Puff",
+	"description": "Be pressing [Primary] you will puff up. While this is active, you will damage anyone that gets near you.",
+	"type": "origins:multiple",
+	"boolean": {
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+			"bar_index": 0
+        },
+        "min": 0,
+        "max": 1
+    },
+    "activate": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "hud_render": {
+            "should_render": false
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_boolean",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_boolean",
+                "operation": "set",
+                "change": 1
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_boolean",
+                "operation": "set",
+                "change": 0
+            }
+        }
+    },
+	"sting": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_boolean",
+			"comparison": "==",
+			"compare_to": 1
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height .55"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 1.65"
+                }
+			]
+		},
+		"falling_action": {
+			"type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height .2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.65"
+                }
+            ]
+		},
+		"entity_action": {
+			"type": "origins:area_of_effect",
+			"radius": 3,
+			"bientity_action": {
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:damage",
+							"amount": 3,
+							"source": {
+								"name": "mob"
+							}
+						}
+					},
+					{
+						"type": "origins:target_action",
+						"action": {
+							"type": "origins:apply_effect",
+							"effect": {
+								"effect": "minecraft:poison",
+								"duration": 120,
+								"amplifier": 0
+							}
+						}
+					}
+				]
+			}
+		}
+	}
+	
+}

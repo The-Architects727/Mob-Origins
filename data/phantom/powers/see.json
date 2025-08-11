@@ -1,0 +1,39 @@
+{
+    "name": "Sleepless Hunter",
+    "description": "You can see all players and villagers that are above y60, at night.",
+    "type": "origins:multiple",
+    "outline": {
+        "type": "origins:entity_glow",
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:height",
+                        "comparison": ">=",
+                        "compare_to": 60
+                    }
+                },
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:player"
+                        },
+                        {
+                            "type": "origins:entity_type",
+                            "entity_type": "minecraft:villager"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    
+}

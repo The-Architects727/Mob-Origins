@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#N#",
+        "NON",
+        "#N#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:wither_skeleton_skull"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        },
+        "O": {
+            "item": "origins:orb_of_origin"
+        }
+    },
+    "result": {
+        "item": "minecraft:knowledge_book",
+        "count": 1
+    }
+}

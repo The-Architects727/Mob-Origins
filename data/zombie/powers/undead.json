@@ -1,0 +1,9 @@
+{
+    "name": "Undead",
+    "description": "You are classified as undead.",
+    "type": "origins:multiple",
+    "undead": {
+        "type": "origins:entity_group",
+        "group": "undead"
+    }
+}

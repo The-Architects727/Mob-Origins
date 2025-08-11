@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "zombie:burn",
+        "zombie:zombiereinforcments",
+        "zombie:villagers",
+        "zombie:water",
+        "zombie:friendlyzombie",
+        "zombie:makefriendlyzombie",
+        "zombie:drown"
+    ],
+    "icon": "minecraft:rotten_flesh",
+    "order": 10,
+    "impact": 3,
+    "name": "Zombie",
+    "description": "Undead hunter of the night"
+}

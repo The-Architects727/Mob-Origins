@@ -1,0 +1,15 @@
+{
+    "powers": [
+        "creeper:blind",
+        "creeper:explode",
+        "creeper:light",
+        "creeper:friendlycreeper",
+        "creeper:makefriendlycreeper",
+        "creeper:chargable"
+    ],
+    "icon": "minecraft:gunpowder",
+    "order": 10,
+    "impact": 3,
+    "name": "Creeper",
+    "description": "Camo stalker with an explosive weapon."
+}

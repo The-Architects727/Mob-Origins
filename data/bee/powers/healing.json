@@ -1,0 +1,224 @@
+{
+    "name": "Healing from Honey",
+	"description": "You cannot eat normal food. You can refill hunger when standing in flowers. Drinking honey will heal you. Eating a honey block will heal you more and clear all effects.",
+    "type": "origins:multiple",
+    "hidden": false,
+    "honeybar": {
+        "type": "origins:resource",
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 13
+        },
+        "min": 0,
+        "max": 100
+    },
+    "hunger": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:in_tag",
+                        "tag": "minecraft:flowers"
+                    }
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<",
+                    "compare_to": 20
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:feed",
+                    "food": 1,
+                    "saturation": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_honeybar",
+                    "operation": "add",
+                    "change": 4
+                }
+            ]
+        }
+    },
+    "honeyfood": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 10,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:honey_bottle"
+                }
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:heal",
+                    "amount": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:honey_bottle 1"
+                }
+            ]
+        }
+    },
+    "honeyblockfood": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 40,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:honey_block"
+                }
+            }
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:heal",
+                    "amount": 18
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect clear"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s minecraft:honey_block 1"
+                }
+            ]
+        }
+    },
+    "prevent": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "bee:allowedfoods"
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:food"
+                }
+            ]
+        }
+    },
+    "honeybottle": {
+        "type": "origins:action_on_block_use",
+        "block_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:beehive"
+                },
+                {
+                    "type": "origins:block",
+                    "block": "minecraft:bee_nest"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_honeybar",
+                                "comparison": ">=",
+                                "compare_to": 25
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_honeybar",
+                                "comparison": "<",
+                                "compare_to": 100
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_honeybar",
+                                "operation": "add",
+                                "change": -25
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:honey_bottle"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_honeybar",
+                                "comparison": ">",
+                                "compare_to": 95
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_honeybar",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            {
+                                "type": "origins:give",
+                                "stack": {
+                                    "item": "minecraft:honey_block"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "powers": [
+        "bee:fly",
+        "bee:healing",
+        "bee:makehoney",
+        "bee:sting",
+        "bee:health",
+        "bee:small"
+    ],
+    "icon": "minecraft:bee_nest",
+    "order": 10,
+    "impact": 3,
+    "name": "Bee",
+    "description": "Pollinators of the overworld"
+}

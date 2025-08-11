@@ -1,0 +1,5 @@
+{
+    "name": "Make Honey",
+	"description": "Standing in flowers will fill your honey bar. Right clicking a bee hive or nest will make a honey bottle when below full, and a honey block when full.",
+    "type": "origins:simple"
+}

@@ -1,0 +1,63 @@
+{
+    "name": "Experienced Benefits",
+    "description": "You gain a variety of benefits. including: backpack [Primary], lavavision, night vision, increased food and healing effects, increased xp gain.",
+    "type": "origins:multiple",
+    "backpack": {
+      "type": "origins:inventory",
+      "container_type": "chest",
+      "drop_on_death": true
+    },
+    "lavaview": {
+      "type": "origins:lava_vision",
+      "s": 0,
+      "v": 15
+    },
+    "nightvision": {
+      "type": "origins:night_vision",
+      "strength": 0.5
+    },
+    "endurance": {
+      "type": "origins:modify_exhaustion",
+      "modifier": {
+          "name": "Increased exhaustion",
+          "operation": "multiply_total_multiplicative",
+          "value": -0.5
+      }
+    },
+    "food": {
+      "type": "origins:modify_food",
+      "food_modifier": {
+          "name": "Increased food points",
+          "operation": "multiply_total",
+          "value": 0.5
+      },
+      "saturation_modifier": {
+          "name": "Increased saturation points",
+          "operation": "multiply_total",
+          "value": 0.5
+      }
+    },
+    "healing": {
+      "type": "origins:modify_healing",
+      "modifier": {
+          "operation": "multiply_total",
+          "value": 0.5
+      }
+    },
+    "lavaspeed": {
+      "type": "origins:modify_lava_speed",
+      "modifier": {
+          "operation": "addition",
+          "value": 0.4
+      }
+    },
+    "xp": {
+      "type": "origins:modify_xp_gain",
+      "modifier": {
+          "operation": "multiply_base",
+          "value": 1.0
+      }
+    }
+    
+    
+}

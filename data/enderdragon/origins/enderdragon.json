@@ -1,0 +1,19 @@
+{
+    "powers": [
+        "enderdragon:fly",
+        "enderdragon:health",
+        "enderdragon:supercharge",
+        "enderdragon:effects",
+        "enderdragon:volley",
+        "enderdragon:large",
+        "enderdragon:friendlydragon",
+        "enderdragon:makefriendlydragon",
+        "enderdragon:reset"
+    ],
+    "icon": "minecraft:dragon_egg",
+    "order": 10,
+    "impact": 3,
+    "name": "Ender Dragon",
+    "description": "Boss at the End of the Game.",
+    "unchoosable": true
+}

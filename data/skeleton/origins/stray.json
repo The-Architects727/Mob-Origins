@@ -1,0 +1,18 @@
+{
+    "powers": [
+        "skeleton:burn",
+        "skeleton:breath",
+        "skeleton:water",
+        "skeleton:friendlyskeleton",
+        "skeleton:makefriendlyskeleton",
+        "skeleton:bowspawn",
+        "skeleton:bowfreeze",
+        "skeleton:reset"
+    ],
+    "icon": "minecraft:bone",
+    "order": 10,
+    "impact": 3,
+    "name": "Stray",
+    "description": "Undead Stalker of the tundra.",
+    "unchoosable": true
+}

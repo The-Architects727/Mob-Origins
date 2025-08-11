@@ -1,0 +1,20 @@
+{
+    "powers": [
+        "ravager:destroy",
+        "ravager:health",
+        "ravager:elytra-water",
+        "ravager:knockback",
+        "ravager:roar",
+        "ravager:unarmed",
+        "ravager:friendlyevoker",
+        "ravager:makefriendlyevoker",
+        "ravager:large",
+        "ravager:reset"
+    ],
+    "icon": "minecraft:smooth_basalt",
+    "order": 10,
+    "impact": 3,
+    "name": "Ravager",
+    "description": "Construct beast of the pillagers.",
+    "unchoosable": true
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Valley Spawn",
+	"description": "You spawn in a soul sand valley.",
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:the_nether",
+  "biome": "minecraft:soul_sand_valley",
+  "spawn_strategy": "center"
+}

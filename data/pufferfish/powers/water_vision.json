@@ -1,0 +1,14 @@
+{
+	"name": "Water Vision",
+	"description": "You can see underwater.",
+	"type": "origins:multiple",
+	"ride": {
+		"type": "origins:night_vision",
+		"strength": 1.0,
+		"condition": {
+			"type": "origins:submerged_in",
+			"fluid": "minecraft:water"
+		}
+	}
+	
+}

@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "friendermen_make_friends": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=evoker]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=pillager]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=ravager]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=silverfish]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=vex]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=vindicator]"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "team join ravager @e[type=witch]"
+                }
+            ]
+        }
+    }
+}

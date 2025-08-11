@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "evoker:vex",
+        "evoker:fangs",
+        "evoker:mansion",
+        "evoker:friendlyevoker",
+        "evoker:makefriendlyevoker",
+        "evoker:villagers",
+        "evoker:health"
+    ],
+    "icon": "minecraft:totem_of_undying",
+    "order": 10,
+    "impact": 3,
+    "name": "Evoker",
+    "description": "The mage of the pillagers"
+}

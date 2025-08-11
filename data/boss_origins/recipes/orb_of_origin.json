@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#D#",
+        "DTD",
+        "#D#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:netherite_scrap"
+        },
+        "D": {
+            "item": "minecraft:diamond_block"
+        },
+        "T": {
+            "item": "minecraft:totem_of_undying"
+        }
+    },
+    "result": {
+        "item": "origins:orb_of_origin",
+        "count": 1
+    }
+}

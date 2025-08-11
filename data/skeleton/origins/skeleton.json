@@ -1,0 +1,17 @@
+{
+    "powers": [
+        "skeleton:burn",
+        "skeleton:breath",
+        "skeleton:water",
+        "skeleton:friendlyskeleton",
+        "skeleton:makefriendlyskeleton",
+        "skeleton:bowspawn",
+        "skeleton:bowbonus",
+        "skeleton:stray"
+    ],
+    "icon": "minecraft:bone",
+    "order": 10,
+    "impact": 3,
+    "name": "Skeleton",
+    "description": "Undead hunter of the night"
+}

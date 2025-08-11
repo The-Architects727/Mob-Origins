@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "blaze:supercharge",
+        "blaze:volley",
+        "blaze:float",
+        "blaze:friendlyblaze",
+        "blaze:makefriendlyblaze",
+        "blaze:fireandwater",
+        "blaze:fortressspawn"
+    ],
+    "icon": "minecraft:blaze_rod",
+    "order": 10,
+    "impact": 3,
+    "name": "Blaze",
+    "description": "Infernal guardian of the nether fortress."
+}

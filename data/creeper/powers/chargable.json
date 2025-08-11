@@ -1,0 +1,14 @@
+{
+  "name": "Chargable",
+	"description": "You become charged when struck by Lightning.",
+  "cooldown": 1,
+  "type": "origins:action_when_damage_taken",
+  "damage_condition": {
+    "type": "origins:name",
+    "name": "lightningBolt"
+  },
+  "entity_action": {
+    "type": "origins:execute_command",
+    "command": "origin set @s origins:origin creeper:chargedcreeper"
+  }
+}

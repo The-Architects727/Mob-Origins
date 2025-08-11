@@ -1,0 +1,1434 @@
+{
+    "name": "Health",
+    "description": "You have 200 health. You heal when near end crystals. But you cannot eat. You cannot wear armor.",
+    "type": "origins:multiple",
+    "effects": {
+      "type": "origins:effect_immunity",
+      "effects": [
+        "minecraft:slowness",
+        "minecraft:haste",
+        "minecraft:mining_fatigue",
+        "minecraft:jump_boost",
+        "minecraft:nausea",
+        "minecraft:regeneration",
+        "minecraft:resistance",
+        "minecraft:fire_resistance",
+        "minecraft:water_breathing",
+        "minecraft:invisibility",
+        "minecraft:blindness",
+        "minecraft:night_vision",
+        "minecraft:hunger",
+        "minecraft:weakness",
+        "minecraft:poison",
+        "minecraft:wither",
+        "minecraft:health_boost",
+        "minecraft:absorption",
+        "minecraft:saturation",
+        "minecraft:luck",
+        "minecraft:slow_falling",
+        "minecraft:conduit_power"
+      ]
+    },
+    "regen": {
+      "type": "origins:action_over_time",
+      "interval": 10,
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "<",
+            "compare_to": 200
+          },
+          {
+            "type": "origins:command",
+            "command": "execute if entity @e[type=end_crystal,distance=..40]",
+            "comparison": ">=",
+            "compare_to": 1
+          }
+        ]
+      },
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": 2
+          },
+          {
+            "type": "origins:feed",
+            "food": 2,
+            "saturation": 2
+          }
+        ]
+      }
+    },
+    "nofood": {
+      "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "enderdragon:allowedfoods"
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:food"
+                }
+            ]
+        }
+    },
+    "resource": {
+      "type": "origins:resource",
+      "min": 0,
+      "max": 200,
+      "start_value": 200,
+      "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+        "bar_index": 9
+      }
+    },
+    "damage": {
+      "type": "origins:modify_damage_taken",
+      "modifier": {
+        "operation": "multiply_total",
+        "value": -0.75
+      }
+    },
+    "armor": {
+      "type": "origins:restrict_armor",
+      "head": {
+          "type": "origins:armor_value",
+          "comparison": ">=",
+          "compare_to": 1
+      },
+      "chest": {
+          "type": "origins:armor_value",
+          "comparison": ">=",
+          "compare_to": 1
+      },
+      "legs": {
+          "type": "origins:armor_value",
+          "comparison": ">=",
+          "compare_to": 1
+      },
+      "feet": {
+          "type": "origins:armor_value",
+          "comparison": ">=",
+          "compare_to": 1
+      }
+    },
+    "immunities": {
+      "type": "origins:invulnerability",
+      "damage_condition": {
+          "type": "origins:or",
+          "conditions": [
+            {
+              "type": "origins:fire"
+            },
+            {
+              "type": "origins:name",
+              "name": "drown"
+            },
+            {
+              "type": "origins:name",
+              "name": "freeze"
+            }
+          ]
+      }
+    },
+    "breakdamage": {
+      "type": "origins:action_when_damage_taken",
+      "cooldown": 40,
+      "entity_action": {
+        "type": "origins:execute_command",
+        "command": "fill ~1 ~-1 ~1 ~-1 ~2 ~-1 air destroy"
+      }
+    },
+    "death": {
+      "type": "origins:prevent_death",
+      "entity_action": {
+        "type": "origins:heal",
+        "amount": 20
+      },
+      "condition": {
+        "type": "origins:resource",
+        "resource": "*:*_resource",
+        "comparison": ">=",
+        "compare_to": 1
+      }
+    },
+    "death2": {
+      "type": "origins:action_over_time",
+      "interval": 20,
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:damage",
+            "amount": 100,
+            "source": {
+              "bypasses_armor": true,
+              "unblockable": true,
+              "name": "player"
+            }
+          },
+          {
+            "type": "origins:delay",
+            "ticks": 20,
+            "action": {
+              "type": "origins:change_resource",
+              "resource": "*:*_resource",
+              "operation": "set",
+              "change": 200
+            }
+          }
+        ]
+        
+      },
+      "condition": {
+        "type": "origins:resource",
+        "resource": "*:*_resource",
+        "comparison": "==",
+        "compare_to": 0
+      }
+    },
+    "respawn": {
+      "type": "origins:action_on_callback",
+      "entity_action_respawned": {
+        "type": "origins:change_resource",
+              "resource": "*:*_resource",
+              "operation": "set",
+              "change": 200
+      }
+    },
+    "damage1": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 1
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 1
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -1
+          }
+        ]
+      }
+    },
+    "damage2": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 2
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 2
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -2
+          }
+        ]
+      }
+    },
+    "damage3": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 3
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 3
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -3
+          }
+        ]
+      }
+    },
+    "damage4": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 4
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 4
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -4
+          }
+        ]
+      }
+    },
+    "damage5": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 5
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 5
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -5
+          }
+        ]
+      }
+    },
+    "damage6": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 6
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 6
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -6
+          }
+        ]
+      }
+    },
+    "damage7": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 7
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 7
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -7
+          }
+        ]
+      }
+    },
+    "damage8": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 8
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 8
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -8
+          }
+        ]
+      }
+    },
+    "damage9": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 9
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 9
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -9
+          }
+        ]
+      }
+    },
+    "damage10": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 10
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 10
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -10
+          }
+        ]
+      }
+    },
+    "damage11": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 11
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 11
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -11
+          }
+        ]
+      }
+    },
+    "damage12": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 12
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 12
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -12
+          }
+        ]
+      }
+    },
+    "damage13": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 13
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 13
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -13
+          }
+        ]
+      }
+    },
+    "damage14": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 14
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 14
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -14
+          }
+        ]
+      }
+    },
+    "damage15": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 15
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 15
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -15
+          }
+        ]
+      }
+    },
+    "damage16": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 16
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 16
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -16
+          }
+        ]
+      }
+    },
+    "damage17": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 17
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 17
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -17
+          }
+        ]
+      }
+    },
+    "damage18": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 18
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 18
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -18
+          }
+        ]
+      }
+    },
+    "damage19": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 19
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 19
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -19
+          }
+        ]
+      }
+    },
+    "damage20": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 20
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 20
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -20
+          }
+        ]
+      }
+    },
+    "damage21": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 21
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 21
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -21
+          }
+        ]
+      }
+    },
+    "damage22": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 22
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 22
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -22
+          }
+        ]
+      }
+    },
+    "damage23": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 23
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 23
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -23
+          }
+        ]
+      }
+    },
+    "damage24": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 24
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 24
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -24
+          }
+        ]
+      }
+    },
+    "damage25": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 25
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 25
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -25
+          }
+        ]
+      }
+    },
+    "damage26": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 26
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 26
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -26
+          }
+        ]
+      }
+    },
+    "damage27": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 27
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 27
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -27
+          }
+        ]
+      }
+    },
+    "damage28": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 28
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 28
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -28
+          }
+        ]
+      }
+    },
+    "damage29": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 29
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 29
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -29
+          }
+        ]
+      }
+    },
+    "damage30": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 30
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 30
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -30
+          }
+        ]
+      }
+    },
+    "damage31": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 31
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 31
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -31
+          }
+        ]
+      }
+    },
+    "damage32": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 32
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 32
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -32
+          }
+        ]
+      }
+    },
+    "damage33": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 33
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 33
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -33
+          }
+        ]
+      }
+    },
+    "damage34": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 34
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 34
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -34
+          }
+        ]
+      }
+    },
+    "damage35": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 35
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 35
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -35
+          }
+        ]
+      }
+    },
+    "damage36": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 36
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 36
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -36
+          }
+        ]
+      }
+    },
+    "damage37": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 37
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 37
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -37
+          }
+        ]
+      }
+    },
+    "damage38": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 38
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 38
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -38
+          }
+        ]
+      }
+    },
+    "damage39": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 39
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 39
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -39
+          }
+        ]
+      }
+    },
+    "damage40": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 40
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 40
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -40
+          }
+        ]
+      }
+    },
+    "damage41": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 41
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 41
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -41
+          }
+        ]
+      }
+    },
+    "damage42": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 42
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 42
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -42
+          }
+        ]
+      }
+    },
+    "damage43": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 43
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 43
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -43
+          }
+        ]
+      }
+    },
+    "damage44": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 44
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 44
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -44
+          }
+        ]
+      }
+    },
+    "damage45": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 45
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 45
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -45
+          }
+        ]
+      }
+    },
+    "damage46": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 46
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 46
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -46
+          }
+        ]
+      }
+    },
+    "damage47": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 47
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 47
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -47
+          }
+        ]
+      }
+    },
+    "damage48": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 48
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 48
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -48
+          }
+        ]
+      }
+    },
+    "damage49": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": "==",
+        "compare_to": 49
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 49
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -49
+          }
+        ]
+      }
+    },
+    "damage50": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": ">=",
+        "compare_to": 50
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:heal",
+            "amount": 50
+          },
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "add",
+            "change": -50
+          }
+        ]
+      }
+    },
+    "instantdeath": {
+      "cooldown": 0,
+      "damage_condition": {
+        "type": "origins:amount",
+        "comparison": ">=",
+        "compare_to": 200
+      },
+      "type": "origins:self_action_when_hit",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [
+          {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "set",
+            "change": 0
+          }
+        ]
+      }
+    }
+    
+    
+}

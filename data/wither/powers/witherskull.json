@@ -1,0 +1,20 @@
+{
+	"name": "Wither Skull",
+	"description": "Pressing [Primary] will fire a wither skull.",
+	"type": "origins:multiple",
+	"small": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:wither_skull",
+		"key": {
+			"key": "key.origins.primary_active"
+		},
+		"cooldown": 100,
+		"speed": 0.3,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+			"bar_index": 14
+		}
+	}
+	
+}

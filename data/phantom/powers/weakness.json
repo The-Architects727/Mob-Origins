@@ -1,0 +1,29 @@
+{
+    "name": "Ground Weakness",
+    "description": "Are weak and slow while on the ground.",
+    "type": "origins:multiple",
+    "ground": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "effect": "minecraft:slowness",
+                    "amplifier": 1,
+                    "duration": 100,
+                    "show_particles": false
+                },
+                {
+                    "effect": "minecraft:weakness",
+                    "amplifier": 1,
+                    "duration": 100,
+                    "show_particles": false
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:on_block"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+	"name": "Limbless",
+	"description": "You lack arms or legs and therefore cannot walk or use ranged weapons.",
+	"type": "origins:multiple",
+	"walk": {
+		"type": "origins:stacking_status_effect",
+        "min_stacks": 1,
+        "max_stacks": 2,
+        "duration_per_stack": 20,
+        "effects": [
+            {
+                "effect": "minecraft:slowness",
+                "duration": 200,
+                "amplifier": 100,
+                "show_particles": false,
+                "show_icon": false
+            }
+        ]
+	},
+	"bow": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "apoli:ingredient",
+			"ingredient": {
+				"item": "minecraft:bow"
+			}
+		}
+	},
+	"crossbow": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "apoli:ingredient",
+			"ingredient": {
+				"item": "minecraft:crossbow"
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+{
+    "name": "Ignitable",
+    "description": "You can be ignited with flint and steel, or a fire charge.",
+	
+        "type": "origins:multiple",
+        "flint": {
+            "type": "origins:action_on_being_used",
+            "item_condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:flint_and_steel"
+                        }
+                    },
+                    {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:fire_charge"
+                        }
+                    }
+                ]
+            },
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:delay",
+                            "ticks": 1,
+                            "action": {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:entity.creeper.primed",
+                                "pitch": 1,
+                                "volume": 2
+                            }
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 30,
+                            "action": {
+                                "type": "origins:explode",
+                                "create_fire": false,
+                                "damage_self": true,
+                                "destruction_type": "break",
+                                "power": 3
+                            }
+                        },
+                        {
+                            "type": "origins:delay",
+                            "ticks": 30,
+                            "action": {
+                                "type": "origins:damage",
+                                "amount": 20,
+                                "source": {
+                                    "magic": true,
+                                    "bypasses_armor": true,
+                                    "unblockable": true,
+                                    "name": "explosion"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+}

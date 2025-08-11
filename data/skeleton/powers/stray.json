@@ -1,0 +1,56 @@
+{
+    "name": "Stray Conversion",
+    "description": "You slowly convert while in powder snow.",
+	
+        "type": "origins:multiple",
+        "timer": {
+            "type": "origins:resource",
+            "min": 0,
+            "max": 600,
+            "hud_render": {
+                "should_render": true,
+                "bar_index": 5
+            }
+        },
+        "death": {
+            "type": "origins:action_over_time",
+            "interval": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_timer",
+                "comparison": ">=",
+                "compare_to": 600
+            },
+            "damage_condition": {
+                "type": "origins:name",
+                "name": "drown"
+            },
+            "entity_action": {
+                "type": "origins:execute_command",
+                "command": "origin set @s origins:origin skeleton:stray"
+            }
+        },
+        "countup": {
+            "type": "origins:action_over_time",
+            "interval": 1,
+            "entity_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_timer",
+                "operation": "add",
+                "change": 1
+            },
+            "condition": {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:powder_snow"
+                }
+            },
+            "falling_action": {
+                "type": "origins:change_resource",
+                "resource": "*:*_timer",
+                "operation": "set",
+                "change": 0
+            }
+        }
+}

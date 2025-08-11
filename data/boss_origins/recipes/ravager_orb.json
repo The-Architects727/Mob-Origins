@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#E#",
+        "TOT",
+        "#E#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_block"
+        },
+        "E": {
+            "item": "minecraft:emerald_block"
+        },
+        "T": {
+            "item": "minecraft:totem_of_undying"
+        },
+        "O": {
+            "item": "origins:orb_of_origin"
+        }
+    },
+    "result": {
+        "item": "minecraft:knowledge_book",
+        "count": 1
+    }
+}

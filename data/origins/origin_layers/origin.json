@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "origins": [
+    "bee:bee",
+    "blaze:blaze",
+    "creeper:creeper",
+    "enderdragon:enderdragon",
+    "enderman:enderman",
+    "endgame:master",
+    "evoker:evoker",
+    "ghast:ghast",
+    "phantom:phantom",
+    "pufferfish:pufferfish",
+    "ravager:ravager",
+    "shulker:shulker",
+    "skeleton:skeleton",
+    "slime:bigslime",
+    "spider:spider",
+    "strider:strider",
+    "villager:villager",
+    "warden:warden",
+    "wither:wither",
+    "zombie:zombie"
+  ]
+}

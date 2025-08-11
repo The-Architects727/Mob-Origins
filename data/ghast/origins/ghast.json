@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "ghast:fly",
+        "ghast:health",
+        "ghast:netherspawn",
+        "ghast:friendlyghast",
+        "ghast:makefriendlyghast",
+        "ghast:fireball",
+        "ghast:large"
+    ],
+    "icon": "minecraft:ghast_tear",
+    "order": 10,
+    "impact": 3,
+    "name": "Ghast",
+    "description": "Spectral floater of the soul valleys"
+}

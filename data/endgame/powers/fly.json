@@ -1,0 +1,9 @@
+{
+	"name": "Flying",
+	"description": "You have creative flight.",
+	"type": "origins:multiple",
+	"creative": {
+		"type": "origins:creative_flight"
+	}
+	
+}

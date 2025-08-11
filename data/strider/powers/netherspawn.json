@@ -1,0 +1,6 @@
+{
+  "name": "Nether Spawn",
+	"description": "You spawn in the nether.",
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:the_nether"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Fortress Spawn",
+	"description": "You spawn in a nether fortress.",
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:the_nether",
+  "structure": "minecraft:fortress",
+  "spawn_strategy": "center"
+}

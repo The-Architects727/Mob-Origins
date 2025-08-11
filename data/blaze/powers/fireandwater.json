@@ -1,0 +1,76 @@
+{
+    "name": "Water Hurts and Fire Does Not",
+    "description": "You take damage from being in water, rain, or powder snow. And do not take damage from fire or lava.",
+	
+        "type": "origins:multiple",
+        "water": {
+            "name": "Water Hurts",
+            "description": "You take damage from being in water, rain, or powder snow.",
+            "type": "origins:action_over_time",
+            "interval": 20,
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:submerged_in",
+                        "fluid":"minecraft:water"
+                    },
+                    {
+                        "type": "origins:in_rain"
+                    },
+                    {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:block",
+                            "block": "minecraft:powder_snow"
+                        }
+                    }
+                ]
+            },
+            "entity_action": {
+                "type": "origins:damage",
+                "amount": 2,
+                "source": {
+                    "name": "freeze"
+                }
+            }
+        },
+        "fire": {
+            "name": "One with Fire",
+            "description": "You take no damage from fire sources.",
+            "type": "origins:modify_damage_taken",
+            "damage_condition": {
+                "type": "origins:fire"
+            },
+            "modifier": {
+                "operation": "multiply_total",
+                "value": -1
+            }
+        },
+        "magma": {
+            "name": "One with Fire",
+            "description": "You take no damage from fire sources.",
+            "type": "origins:modify_damage_taken",
+            "damage_condition": {
+                "type": "origins:name",
+                "name": "hotFloor"
+            },
+            "modifier": {
+                "operation": "multiply_total",
+                "value": -1
+            }
+        },
+        "lava": {
+            "name": "One with Fire",
+            "description": "You take no damage from fire sources.",
+            "type": "origins:modify_damage_taken",
+            "damage_condition": {
+                "type": "origins:name",
+                "name": "lava"
+            },
+            "modifier": {
+                "operation": "multiply_total",
+                "value": -1
+            }
+        }
+}

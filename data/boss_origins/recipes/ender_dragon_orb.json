@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#E#",
+        "NON",
+        "PTP"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:chorus_flower"
+        },
+        "E": {
+            "item": "minecraft:elytra"
+        },
+        "N": {
+            "item": "minecraft:shulker_box"
+        },
+        "O": {
+            "item": "origins:orb_of_origin"
+        },
+        "T": {
+            "item": "minecraft:end_crystal"
+        },
+        "P": {
+            "item": "minecraft:ender_eye"
+        }
+    },
+    "result": {
+        "item": "minecraft:knowledge_book",
+        "count": 1
+    }
+}

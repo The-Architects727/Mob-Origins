@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "enderman:dodge",
+        "enderman:teleport",
+        "enderman:dimension",
+        "enderman:friendlyendermen",
+        "enderman:makefriendlyendermen",
+        "enderman:tall",
+        "enderman:health"
+    ],
+    "icon": "minecraft:ender_pearl",
+    "order": 10,
+    "impact": 3,
+    "name": "Enderman",
+    "description": "Main inhabitant of the end."
+}

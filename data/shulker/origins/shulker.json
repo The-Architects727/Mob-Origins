@@ -1,0 +1,16 @@
+{
+    "powers": [
+        "shulker:stationary",
+        "shulker:tp",
+        "shulker:small",
+        "shulker:friendlyshulker",
+        "shulker:makefriendlyshulker",
+        "shulker:bullet",
+        "shulker:health"
+    ],
+    "icon": "minecraft:shulker_box",
+    "order": 10,
+    "impact": 3,
+    "name": "Shulker",
+    "description": "Sentries of the end cities"
+}

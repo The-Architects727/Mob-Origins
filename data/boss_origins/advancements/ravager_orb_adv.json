@@ -1,0 +1,13 @@
+{
+    "criteria": {
+        "enderkeyunlock": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "boss_origins:ravager_orb"
+            }
+        }
+    },
+    "rewards": {
+        "function": "boss_origins:ravager_orb_give"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Jump Only",
+	"description": "You can only jump to move.",
+    "type": "origins:multiple",
+    "hidden": false,
+    "friendermen_join_team": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale reset"
+                }
+            ]
+        },
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:jump_height 1.5"
+                }
+            ]
+        }
+    }
+}

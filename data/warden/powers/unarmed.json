@@ -1,0 +1,20 @@
+{
+    "name": "Massive strikes",
+    "description": "As a defender you were made to destroy intruders. Your [unarmed] stikes deal 45 damage.",
+    "type": "origins:modify_damage_dealt",
+    "bientity_condition": {
+        "type": "origins:actor_condition",
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:empty"
+            }
+        }
+    },
+    "modifier": {
+        "operation": "multiply_total",
+        "value": 89
+    }
+        
+    }

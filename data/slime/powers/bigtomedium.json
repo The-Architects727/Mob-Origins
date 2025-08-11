@@ -1,0 +1,58 @@
+{
+    "name": "Split on Death",
+    "description": "On death you split into a smaller set of slimes(2-4)",
+	
+        "type": "origins:multiple",
+        "death": {
+            "type": "origins:prevent_death",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "origin set @s origins:origin slime:mediumslime"
+                    },
+                    {
+                        "type": "origins:heal",
+                        "amount": 8
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon slime ~ ~ ~ {Team:slime,Size:2}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "summon slime ~ ~ ~ {Team:slime,Size:2}"
+                    },
+                    {
+                        "type": "origins:chance",
+                        "chance": 0.5,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "summon slime ~ ~ ~ {Team:slime,Size:2}"
+                        }
+                    },
+                    {
+                        "type": "origins:chance",
+                        "chance": 0.5,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "summon slime ~ ~ ~ {Team:slime,Size:2}"
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "scale set pehkui:width 1.5"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "scale set pehkui:height 0.75"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "scale set pehkui:jump_height 1.5"
+                    }
+                ]
+            }
+        }
+}

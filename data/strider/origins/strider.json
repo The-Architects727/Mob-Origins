@@ -1,0 +1,15 @@
+{
+    "powers": [
+        "strider:lavawalk",
+        "strider:netherspawn",
+        "strider:friendlystrider",
+        "strider:makefriendlystrider",
+        "strider:small",
+        "strider:ridable"
+    ],
+    "icon": "minecraft:crimson_nylium",
+    "order": 10,
+    "impact": 3,
+    "name": "Strider",
+    "description": "Wanderer of the lava lakes"
+}

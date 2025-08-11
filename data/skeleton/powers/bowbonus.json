@@ -1,0 +1,13 @@
+{
+    "name": "Bow Damage Bonus",
+	"description": "You deal aditional bow damage.",
+    "type": "origins:multiple",
+    "hidden": false,
+    "bow": {
+        "type": "origins:modify_projectile_damage",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.2
+        }
+    }
+}

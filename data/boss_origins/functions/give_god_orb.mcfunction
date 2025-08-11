@@ -1,0 +1,2 @@
+kill @e[nbt={Item: {id: "minecraft:nether_star"}}, distance=..1]
+summon item ~ ~ ~ {Item:{id:"minecraft:nether_star",Count:1b,tag:{display:{Name:'{"text":"Endgame Master Orb","color":"red"}',Lore:['{"text":"Drop at feet"}','{"text":"to become the"}','{"text":"Endgame Master"}','{"text":"Origin"}']},Enchantments:[{}]}}}
